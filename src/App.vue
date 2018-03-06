@@ -3,8 +3,11 @@
     <h1>{{ msg }}</h1>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIxkKLbeYYp6IhrA2sRnUr6gxI0IP67M9YpvWzZI-0QEl41C7yhw">
     <div>
-      <button id="listMachine" @click="greet">Listes des Machines</button> <button id="showMap" @click="">Voir la carte</button>
+      <button id="listMachine" @click="onMachinesListClick">Listes des Machines</button> <button id="showMap" @click="onMapClick">Voir la carte</button>
     </div>
+    <machinelist>List of machines Overwatch</machinelist>
+    <mapmachine>view machine on map</mapmachine>
+
   </div>
 </template>
 
@@ -15,17 +18,14 @@ export default {
     return {
       msg: 'Welcome on overwatch coffe machine',
 
-      methods:{
-        el: '#listMachine',
-        greet: function(event){
-          console.log('click')
-        }
-      }
     }
   },
   methods: {
-    greet: function (event) {
-      console.log('click')
+    onMachinesListClick: function (event) {
+      window.alert('list des machines')
+    },
+    onMapClick: function (event){
+     window.alert('voir la map')
     }
   }
 }
