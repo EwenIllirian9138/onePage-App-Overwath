@@ -1,10 +1,12 @@
 <template>
-    <h1>Liste des machines</h1>
+  <div>
+    <h2>Carte des machines</h2>
+  </div>
 </template>
 
 <script>
     export default {
-        name: "machine-list"
+        name: "machine-map"
     }
 </script>
 

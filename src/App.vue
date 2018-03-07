@@ -5,8 +5,10 @@
     <div>
       <button id="listMachine" @click="onMachinesListClick">Listes des Machines</button> <button id="showMap" @click="onMapClick">Voir la carte</button>
     </div>
-    <machinelist>List of machines Overwatch</machinelist>
-    <mapmachine>view machine on map</mapmachine>
+    <router-link :to="{name : 'listMachine'}">view machine list</router-link>
+    <router-link :to="{name : 'mapMachine'}">view map</router-link>
+
+    <router-view> </router-view>
 
   </div>
 </template>
