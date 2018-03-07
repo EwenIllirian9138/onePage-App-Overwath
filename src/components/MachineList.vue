@@ -1,9 +1,7 @@
 <template>
   <div>
     <h2>Liste des machines</h2>
-    <h1>{{name}}</h1>
-    <h3>Status : {{status}}</h3>
-    <h5>{{toLocaleString()}}</h5>
+      <div v-for="owMachine in owMachines" v-bind:key="owMachine.id"></div>
   </div>
 </template>
 
@@ -14,9 +12,29 @@
     name: "machine-list",
     data () {
       return {
-        name: 'Machine Hanamura',
-        status: false,
-        checkedAt: new Date(),
+
+        owMachines: [{
+
+          id: 1,
+          name: 'Machine Hanamura',
+          status: false,
+          checkedAt: new Date(),
+        }, {
+          id: 2,
+          name: 'Machine Anubis',
+          status: false,
+          checkedAt: new Date(),
+        }, {
+          id: 3,
+          name: 'Machine Horizon',
+          status: false,
+          checkedAt: new Date(),
+        }, {
+          id: 4,
+          name: 'Machine Volskya',
+          status: false,
+          checkedAt: new Date(),
+        }],
       }
     },
 

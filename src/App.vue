@@ -3,17 +3,20 @@
     <h1>{{ msg }}</h1>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIxkKLbeYYp6IhrA2sRnUr6gxI0IP67M9YpvWzZI-0QEl41C7yhw">
     <div>
-      <button id="listMachine" @click="onMachinesListClick">Listes des Machines</button> <button id="showMap" @click="onMapClick">Voir la carte</button>
+      <button id="listMachine" @click="onMachinesListClick"><router-link class="link" :to="{name : 'listMachine'}">view machine list</router-link></button>
+      <button id="showMap" @click="onMapClick"><router-link class="link" :to="{name : 'mapMachine'}">view map</router-link></button>
     </div>
-    <router-link :to="{name : 'listMachine'}">view machine list</router-link>
-    <router-link :to="{name : 'mapMachine'}">view map</router-link>
+    <!--<router-link :to="{name : 'listMachine'}">view machine list</router-link>-->
+    <!--<router-link :to="{name : 'mapMachine'}">view map</router-link>-->
     <!--<router-link :to="{name : 'machine'}">machine</router-link>-->
-    <router-view> </router-view>
-
+    <router-view><machine-list></machine-list></router-view>
   </div>
 </template>
 
 <script>
+
+  import Machinelist from './components/MachineList';
+
 export default {
   name: 'app',
   data () {
@@ -29,6 +32,9 @@ export default {
     onMapClick: function (event){
      window.alert('voir la map')
     }
+  },
+  components: {
+    'machineList' : Machinelist
   }
 }
 </script>
@@ -62,8 +68,11 @@ a {
 }
 
 button {
-  background-color: aqua;
+  background-color: crimson;
   border: 2px solid black;
   font-weight: normal;
 }
+  .link{
+    color: black;
+  }
 </style>

@@ -12,7 +12,7 @@ import App from './App.vue';
 
 
 const routes = [
-  {path: '/listMachine', component: MachineList, name: 'listMachine' },
+  {path: '/listMachine', component: MachineList, name: 'listMachine', props: true },
   {path: '/mapMachine', component: MachineMap, name: 'mapMachine'},
   {path: '/machine', component: Machine, name : 'machine'},
 ];
