@@ -7,7 +7,7 @@
     </div>
     <router-link :to="{name : 'listMachine'}">view machine list</router-link>
     <router-link :to="{name : 'mapMachine'}">view map</router-link>
-    <router-link :to="{name : 'machine'}">machine</router-link>
+    <!--<router-link :to="{name : 'machine'}">machine</router-link>-->
     <router-view> </router-view>
 
   </div>
