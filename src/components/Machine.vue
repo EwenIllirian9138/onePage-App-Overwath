@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <ul >
       <li><h2>{{probMachine.name}}</h2></li>
       <li><h3 v-bind:class="probMachine.status ? 'green' : 'red'">{{statusMachine}}</h3></li>
@@ -24,11 +24,11 @@
       {
         if (this.probMachine.status === true) {
 
-          return "OK 🤩";
+          return "Run 🤩";
 
         } else if (this.probMachine.status === false) {
 
-          return "KO 🙁";
+          return "Off 🙁";
         }
       },
 
@@ -50,6 +50,16 @@
 }
   ul{
     border: 5px solid black;
+    flex-grow: 2;
+    display: flex;
+  }
+  li{
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .container{
+    display: flex;
   }
 
 

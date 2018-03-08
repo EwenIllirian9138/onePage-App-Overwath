@@ -3,26 +3,50 @@
     <h1>{{ msg }}</h1>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIxkKLbeYYp6IhrA2sRnUr6gxI0IP67M9YpvWzZI-0QEl41C7yhw">
     <div>
-      <button id="listMachine" @click="onMachinesListClick"><router-link class="link" :to="{name : 'listMachine'}">view machine list</router-link></button>
-      <button id="showMap" @click="onMapClick"><router-link class="link" :to="{name : 'mapMachine'}">view map</router-link></button>
+      <button type="button" class="btn btn-info" id="listMachine" @click="onMachinesListClick"><router-link class="link" :to="{name : 'listMachine',params: { probOwMachines: owMachines  }}">view machine list</router-link></button>
+      <button id="showMap" class="btn btn-info" @click="onMapClick"><router-link class="link" :to="{name : 'mapMachine', params : {probMachineMap: owMachines}}">view map</router-link></button>
     </div>
     <!--<router-link :to="{name : 'listMachine'}">view machine list</router-link>-->
     <!--<router-link :to="{name : 'mapMachine'}">view map</router-link>-->
     <!--<router-link :to="{name : 'machine'}">machine</router-link>-->
-    <router-view><machine-list></machine-list></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-
-  import Machinelist from './components/MachineList';
+import Machinelist from './components/MachineList';
+import MachineMap from './components/MachineMap';
 
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome on overwatch coffe machine',
-
+      msg: 'Welcome on overwatch repair machine',
+      owMachines: [{
+        id: 1,
+        name: 'Machine Hanamura',
+        status: false,
+        checkedAt: new Date(),
+        markers: [{lat:10.0, lng: 10.0}]
+      }, {
+        id: 2,
+        name: 'Machine Anubis',
+        status: false,
+        checkedAt: new Date(),
+        markers: [{lat:9, lng: 9}]
+      }, {
+        id: 3,
+        name: 'Machine Horizon',
+        status: false,
+        checkedAt: new Date(),
+        markers: [{lat:9.5, lng: 9.5}]
+      }, {
+        id: 4,
+        name: 'Machine Volskya',
+        status: false,
+        checkedAt: new Date(),
+        makers: [{lat:9.8, lng: 9.8}]
+      }],
     }
   },
   methods: {
@@ -34,7 +58,8 @@ export default {
     }
   },
   components: {
-    'machineList' : Machinelist
+    'machineList' : Machinelist,
+    'machineMap' : MachineMap,
   }
 }
 </script>
@@ -67,12 +92,12 @@ a {
   color: #42b983;
 }
 
-button {
-  background-color: crimson;
-  border: 2px solid black;
-  font-weight: normal;
+.link{
+  color: black;
 }
-  .link{
-    color: black;
+  button{
+    width: 20%;
+    padding-top: 5px;
+    margin: 10px;
   }
 </style>

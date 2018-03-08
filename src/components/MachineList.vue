@@ -1,46 +1,24 @@
 <template>
   <div>
     <h2>Liste des machines</h2>
-      <machine  v-for="owMachine in owMachines" v-bind:key="owMachine.id" v-bind:probMachine="owMachine"></machine>
+      <machine  v-for="probOwMachine in probOwMachines" v-bind:key="probOwMachine.id" v-bind:probMachine="probOwMachine"></machine>
   </div>
 </template>
 
 <script>
-  import Machine from './Machine';
+import Machine from './Machine';
 
-  export default {
-    name: "machine-list",
-    data () {
-      return {
-
-        owMachines: [{
-          id: 1,
-          name: 'Machine Hanamura',
-          status: false,
-          checkedAt: new Date(),
-        }, {
-          id: 2,
-          name: 'Machine Anubis',
-          status: false,
-          checkedAt: new Date(),
-        }, {
-          id: 3,
-          name: 'Machine Horizon',
-          status: false,
-          checkedAt: new Date(),
-        }, {
-          id: 4,
-          name: 'Machine Volskya',
-          status: false,
-          checkedAt: new Date(),
-        }],
-      }
-    },
-
-      components: {
-        'machine' : Machine
-      }
+export default {
+  name: "machine-list",
+  props: ["probOwMachines"],
+  data () {
+    return {
     }
+  },
+  components: {
+   'machine' : Machine
+  }
+}
 </script>
 
 
