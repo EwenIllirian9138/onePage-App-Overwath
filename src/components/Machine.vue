@@ -1,8 +1,8 @@
 <template>
   <div>
-    <ul class="{green : machine.status, red : !machine.status}">
+    <ul >
       <li><h2>{{probMachine.name}}</h2></li>
-      <li><h3>{{statusMachine}}</h3></li>
+      <li><h3 v-bind:class="probMachine.status ? 'green' : 'red'">{{statusMachine}}</h3></li>
       <li><h4>{{afficheDate}}</h4></li>
     </ul>
   </div>
@@ -24,7 +24,7 @@
       {
         if (this.probMachine.status === true) {
 
-          return "ok 🤩";
+          return "OK 🤩";
 
         } else if (this.probMachine.status === false) {
 
@@ -35,7 +35,7 @@
       afficheDate()
       {
         return this.probMachine.checkedAt.toLocaleString();
-      }
+      },
     }
     }
 </script>
@@ -44,12 +44,13 @@
 
 .green{
     color: green;
-  border: 5px solid green ;
   }
 .red{
   color:red;
-  border: 5px solid red ;
 }
+  ul{
+    border: 5px solid black;
+  }
 
 
 </style>

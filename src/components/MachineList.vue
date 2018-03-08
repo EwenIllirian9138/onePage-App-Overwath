@@ -1,5 +1,5 @@
 <template>
-  <div classe="listMachine">
+  <div>
     <h2>Liste des machines</h2>
       <machine  v-for="owMachine in owMachines" v-bind:key="owMachine.id" v-bind:probMachine="owMachine"></machine>
   </div>
@@ -14,7 +14,6 @@
       return {
 
         owMachines: [{
-
           id: 1,
           name: 'Machine Hanamura',
           status: false,
