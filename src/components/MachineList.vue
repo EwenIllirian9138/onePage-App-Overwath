@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div classe="listMachine">
     <h2>Liste des machines</h2>
-      <div v-for="owMachine in owMachines" v-bind:key="owMachine.id"></div>
+      <machine  v-for="owMachine in owMachines" v-bind:key="owMachine.id" v-bind:probMachine="owMachine"></machine>
   </div>
 </template>
 
@@ -46,5 +46,6 @@
 
 
 <style scoped>
+
 
 </style>
