@@ -3,18 +3,23 @@
     <h1>{{ msg }}</h1>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIxkKLbeYYp6IhrA2sRnUr6gxI0IP67M9YpvWzZI-0QEl41C7yhw">
     <div>
-      <button type="button" class="btn btn-info" id="listMachine" @click="onMachinesListClick"><router-link class="link" :to="{name : 'listMachine',params: { probOwMachines: owMachines  }}">view machine list</router-link></button>
-      <button id="showMap" class="btn btn-info" @click="onMapClick"><router-link class="link" :to="{name : 'mapMachine', params : {probMachineMap: owMachines}}">view map</router-link></button>
+      <router-link class="link btn btn-info" :to="{name : 'listMachine'}">view machine list</router-link>
+      <router-link class="link btn btn-info" :to="{name : 'mapMachine'}">view map</router-link>
+      <!--<button type="button" class="btn btn-info" id="listMachine" @click="onMachinesListClick">list machine</button>-->
+      <!--<button id="showMap" class="btn btn-info" @click="onMapClick">show map</button>-->
     </div>
     <!--<router-link :to="{name : 'listMachine'}">view machine list</router-link>-->
     <!--<router-link :to="{name : 'mapMachine'}">view map</router-link>-->
     <!--<router-link :to="{name : 'machine'}">machine</router-link>-->
-    <router-view></router-view>
+    <router-view
+      :prob-ow-machines="owMachines"
+      :prob-machine-map="owMachines"
+    ></router-view>
   </div>
 </template>
 
 <script>
-import Machinelist from './components/MachineList';
+import MachineList from './components/MachineList';
 import MachineMap from './components/MachineMap';
 
 export default {
@@ -27,25 +32,28 @@ export default {
         name: 'Machine Hanamura',
         status: false,
         checkedAt: new Date(),
-        markers: [{lat:10.0, lng: 10.0}]
+        position: {lat: 10.0, lng: 10.0}
       }, {
         id: 2,
         name: 'Machine Anubis',
         status: false,
         checkedAt: new Date(),
-        markers: [{lat:9, lng: 9}]
+        position: {lat: 9.0, lng: 10.9}
+
       }, {
         id: 3,
         name: 'Machine Horizon',
         status: false,
         checkedAt: new Date(),
-        markers: [{lat:9.5, lng: 9.5}]
+        position: {lat: 11.0, lng: 9.0}
+
       }, {
         id: 4,
         name: 'Machine Volskya',
         status: false,
         checkedAt: new Date(),
-        makers: [{lat:9.8, lng: 9.8}]
+        position: {lat: 11.0, lng: 11.0}
+
       }],
     }
   },
@@ -58,7 +66,7 @@ export default {
     }
   },
   components: {
-    'machineList' : Machinelist,
+    'machineList' : MachineList,
     'machineMap' : MachineMap,
   }
 }
@@ -94,6 +102,8 @@ a {
 
 .link{
   color: black;
+  padding-top: 5px;
+  margin: 10px;
 }
   button{
     width: 20%;

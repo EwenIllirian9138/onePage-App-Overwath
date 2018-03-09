@@ -4,13 +4,16 @@
       <li><h2>{{probMachine.name}}</h2></li>
       <li><h3 v-bind:class="probMachine.status ? 'green' : 'red'">{{statusMachine}}</h3></li>
       <li><h4>{{afficheDate}}</h4></li>
+      <machineStatus></machineStatus>
     </ul>
   </div>
 </template>
 
 <script>
+  import MachineStatus from './MachineStatus'
     export default {
       name: "machine",
+      hideOffOwMachines: false,
       props: ["probMachine"],
 
       data () {
@@ -36,6 +39,9 @@
       {
         return this.probMachine.checkedAt.toLocaleString();
       },
+    },
+    components  :{
+        'machineStatus' : MachineStatus,
     }
     }
 </script>
