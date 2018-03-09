@@ -11,22 +11,21 @@
     <!--<router-link :to="{name : 'listMachine'}">view machine list</router-link>-->
     <!--<router-link :to="{name : 'mapMachine'}">view map</router-link>-->
     <!--<router-link :to="{name : 'machine'}">machine</router-link>-->
-    <router-view
-      :prob-ow-machines="owMachines"
-      :prob-machine-map="owMachines"
-    ></router-view>
+    <router-view :prob-ow-machines="owMachines" :prob-machine-map="owMachines"><li v-for="axiosMachines of axiosMachine"><p>{{axiosMachine.name}}</p></li></router-view>
   </div>
 </template>
 
 <script>
 import MachineList from './components/MachineList';
 import MachineMap from './components/MachineMap';
+import axios from 'axios';
 
 export default {
   name: 'app',
   data () {
     return {
       msg: 'Welcome on overwatch repair machine',
+      axiosMachines: [],
       owMachines: [{
         id: 1,
         name: 'Machine Hanamura',
@@ -57,6 +56,18 @@ export default {
       }],
     }
   },
+
+  async getMachine () {
+    try{
+      const response = await axios.get('https://machine-api-campus.herokuapp.com/api/machines');
+      console.log(response);
+      response.push(axiosMachines);
+    } catch (error) {
+      console.error(error);
+    }
+
+  },
+
   methods: {
     onMachinesListClick: function (event) {
       window.alert('list des machines')

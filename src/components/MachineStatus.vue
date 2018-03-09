@@ -1,5 +1,5 @@
 <template>
-  <li :class="{ active: AttrOwMachine.status }">{{AttrOwMachine.name}}<toggle-button :value="AttrOwMachine.status" @change="AttrOwMachine.status = !AttrOwMachine.status"/></li>
+  <li :class="{ active: AttrOwMachine.status }"><toggle-button :value="AttrOwMachine.status" @change="AttrOwMachine.status = !AttrOwMachine.status"/></li>
 </template>
 
 <script>
